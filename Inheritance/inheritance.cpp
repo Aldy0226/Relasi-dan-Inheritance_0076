@@ -4,13 +4,13 @@ using namespace std;
 
 class orang {
     public:
-    string nama;
+        string nama;
 
-    orang(string pNama) :
-        nama(pNama) {
+        orang(string pNama):
+            nama(pNama) {
             cout << "orang dibuat\n" << endl;
         }
-        ~orang() {
+        ~orang(){
             cout << "orang dihapus\n" << endl;
         }
 
@@ -18,3 +18,24 @@ class orang {
             return a + b;
         }
 };
+
+class pelajar : public orang {
+    public:
+        string sekolah;
+
+        pelajar(string pNama, string pSekolah) : orang(pNama), sekolah(pSekolah){
+            cout << "pelajar dibuat\n" << endl;
+        }
+        string perkenalan(){
+            return "Hallo, nama saya " + nama + " dari sekolah " + sekolah + "\n\n";
+        }
+
+};
+
+int main() {
+    pelajar siswa1("andi laksono", "SMAN 1 Bantul");
+    cout << siswa1.perkenalan();
+    cout << "Hasil = " << siswa1.jumlah(10, 99) << endl;
+
+    return 0;
+}
